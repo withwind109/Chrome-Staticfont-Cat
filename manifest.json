@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://easy.jd.com/*"
+        "http://*/"
       ],
       "js": [
         "lib/jquery-2.1.4.min.js",
