@@ -1,0 +1,47 @@
+body {
+
+}
+
+.panel {
+    position: relative;
+    width: 120px;
+    height: 130px;
+}
+
+.bg-cat {
+    position: absolute;
+    background-image: url("../skin/i/black_cat.png");
+    background-size: 100%;
+    opacity: 0.25;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1;
+}
+
+.setting-panel {
+    position: absolute;
+    padding: 6px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+}
+
+.setting-panel .list {
+    list-style: none;
+}
+
+.setting-panel .list .item span {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+.setting-panel .list .title {
+    font-size: 10px;
+    padding: 0px;
+    height: 20px;
+}
+
