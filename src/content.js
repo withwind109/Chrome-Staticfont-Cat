@@ -42,15 +42,16 @@ chrome.extension.sendMessage({state: "init"});
 
 $(function () {
     chrome.extension.sendMessage({state: "ready"}, function (data) {
+        var timeStap = (new Date()).getTime();
 
         data.forEach(function (arr) {
             arr.forEach(function (url) {
                 if (url.indexOf(".js") != -1) {
                     //createJS("http://localhost/" + url);
-                    jsRequestList.push("http://localhost/" + url);
+                    jsRequestList.push("http://localhost/" + url + "?" + timeStap);
                 }
                 else if (url.indexOf(".css") != -1) {
-                    createCss("http://localhost/" + url);
+                    createCss("http://localhost/" + url + "?" + timeStap);
                 }
             });
         });
