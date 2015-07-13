@@ -8,9 +8,8 @@
 //        console.log(request);
 //    }
 //);
-
-
 var jsRequestList = [];
+var headDom = document.getElementsByTagName("head").item(0);
 
 function loadJSlist() {
     createJS(jsRequestList[0]);
@@ -23,11 +22,11 @@ function createJS(src) {
     jsNode.type = "text/javascript";
     jsNode.src = src;
     jsNode.onload = function () {
-        if(jsRequestList.length!=0){
+        if (jsRequestList.length != 0) {
             loadJSlist();
         }
     };
-    document.getElementsByTagName("head").item(0).appendChild(jsNode);
+    headDom.appendChild(jsNode);
 }
 
 function createCss(href) {
@@ -35,7 +34,8 @@ function createCss(href) {
     styleNode.type = "text/css";
     styleNode.rel = "stylesheet";
     styleNode.href = href;
-    document.getElementsByTagName("head").item(0).appendChild(styleNode);
+
+    headDom.appendChild(styleNode);
 }
 
 chrome.extension.sendMessage({state: "init"});
@@ -45,11 +45,11 @@ $(function () {
 
         data.forEach(function (arr) {
             arr.forEach(function (url) {
-                if (url.indexOf(".js")) {
+                if (url.indexOf(".js") != -1) {
                     //createJS("http://localhost/" + url);
                     jsRequestList.push("http://localhost/" + url);
                 }
-                else if (url.indexOf(".css")) {
+                else if (url.indexOf(".css") != -1) {
                     createCss("http://localhost/" + url);
                 }
             });
