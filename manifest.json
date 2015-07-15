@@ -13,7 +13,7 @@
           "http://*/*"
       ],
       "js": [
-        "lib/jquery-2.1.4.min.js",
+        "lib/zepto.js",
         "src/content.js"
       ]
     }
