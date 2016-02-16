@@ -45,10 +45,10 @@ $(function () {
         data.forEach(function (arr) {
             arr.forEach(function (url) {
                 if (url.indexOf(".js") != -1) {
-                    jsRequestList.push("http://localhost/" + url);
+                    jsRequestList.push("http://localhost:8080/" + url);
                 }
                 else if (url.indexOf(".css") != -1) {
-                    createCss("http://localhost/" + url);
+                    createCss("http://localhost:8080/" + url);
                 }
             });
         });

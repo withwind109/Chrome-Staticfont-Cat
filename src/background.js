@@ -2,14 +2,13 @@
  * Created by zhade on 15/7/11.
  */
 var debugJson = {};
-var removeAddress = "http://127.0.0.1/";
+var removeAddress = "http://127.0.0.1:8080/";
 
 var currTabId = -1;
 var stReg = new RegExp(/-min.js$|-min.css$/);
 var stMap = [];
 
 function requestJSON() {
-
     $.ajax({
         type: "get",
         url: removeAddress + "debugMap.js?" + (new Date()).getTime(),
@@ -21,16 +20,13 @@ function requestJSON() {
 
             try {
                 debugJson = JSON.parse(data);
-                //if (currTabId) {
-                //    chrome.tabs.sendMessage(currTabId, {greeting: 'hello'});
-                //}
             }
             catch (err) {
-
+                console.log('读取JSON格式错误')
             }
         },
         error: function () {
-
+            console.log('本地HTTP请求错误')
         }
     });
 }
@@ -109,9 +105,8 @@ chrome.webRequest.onBeforeRequest.addListener(
 
             var fileMap = debugJson[urlKey];
             if (fileMap) {
-                //chrome.tabs.sendMessage(currTabId, {greeting: 'hello'});
-                //chrome.tabs.sendMessage(currTabId, {"fileMap": "cc"});//JSON.stringify(fileMap)
-                console.log("add");
+                //chrome.tabs.sendMessage(currTabId, {greeting: 'test'});
+                //chrome.tabs.sendMessage(currTabId, {"fileMap": "test"});
                 stMap.push(fileMap);
 
                 return {cancel: true};
