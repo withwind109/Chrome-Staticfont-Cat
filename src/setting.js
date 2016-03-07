@@ -51,4 +51,15 @@ $(function () {
     //$switchOFF.on('click', function () {
     //
     //});
+
+    $('.save-btn').on('click', function () {
+        var port = $('.port-text').val();
+        if (port == '') {
+            return;
+        }
+
+        chrome.storage.sync.set({'port': port}, function () {
+            alert('!');
+        });
+    });
 });

@@ -138,5 +138,6 @@ chrome.webRequest.onBeforeRequest.addListener(
         //{cancel: details.url.indexOf("://cn.bing.com/") != -1};
     },
     {urls: ["<all_urls>"]},
-    ["blocking"]);
+    ["blocking"]
+);
 
